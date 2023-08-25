@@ -2,6 +2,9 @@ let logout = document.querySelector("#logout");
 let bntDeCadastroDeValor = document.querySelector("#cadastroValor")
 let popupDeCadastroDeValor = document.querySelector("#popupDeCadastroValor")
 let cadastrarValor = document.querySelector("#cadastraValor")
+let popupCadastro = document.querySelector('.popup_cadastro');
+
+
 // Desloga o usuario
 function deslogar() {
   logout.addEventListener("click", () => {
@@ -104,6 +107,20 @@ function cadastroDeEntradaOuSaida(){
   //Abre o Popup para cadastro de valor
   bntDeCadastroDeValor.addEventListener("click", () => {
     popupDeCadastroDeValor.style.display = "flex"
+
+    // Verifica se o popup esta aberto
+    if(popupDeCadastroDeValor.style.display == "flex"){
+      //Pega o evento de click dentro do modal, se for dentro ele pausa a propação
+      popupCadastro.addEventListener("click", (e) => {
+        e.stopPropagation()
+      })
+
+      // Caso o click seja fora fecha o popup
+      popupDeCadastroDeValor.addEventListener("click", () =>{ 
+        popupDeCadastroDeValor.style.display = "none"
+      })
+    }
+    
   })
 
 
