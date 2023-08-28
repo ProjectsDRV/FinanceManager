@@ -117,14 +117,11 @@ function cadastroDeEntradaOuSaida(){
 
       // Caso o click seja fora fecha o popup
       popupDeCadastroDeValor.addEventListener("click", () =>{ 
-        popupDeCadastroDeValor.style.display = "none"
+        popupDeCadastroDeValor. style.display = "none"
       })
     }
-    
+
   })
-
-
-
 
 
   // Cadastra e fecha a Popup para cadastro de valor
@@ -132,6 +129,7 @@ function cadastroDeEntradaOuSaida(){
     popupDeCadastroDeValor.style.display = "none"
   })
 }
+
 cadastroDeEntradaOuSaida()
 
 
