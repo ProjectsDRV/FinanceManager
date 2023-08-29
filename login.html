@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- CSS -->
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="shortcut icon" type="imagex/png" href="./img/Logo.svg" />
+
+  <!-- FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Antonio:wght@300;400&family=Poppins:wght@200;300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- TÍTULO -->
+  <title>Finance Manege</title>
+</head>
+
+<body id="login">
+  <!-- MAIN -->
+  <main>
+    <!-- HEADER -->
+    <header>
+      <a href="./index.html">
+        <img id="logo" src="./assets/logo_mini.png" alt="" />
+      </a>
+      <a href="cadastro.html"><img src="./assets/login_svg_icon.svg" alt="">Cadastre-se</a>
+    </header>
+
+
+    <div class="content" id="content-index">
+      <h1>Seu mestre na gerência de finanças</h1>
+      <h3>Ajudamos a controlar seus gastos e também <br>gerenciamos a renda da sua casa.</h3>
+
+      <!-- FORMULARIO -->
+      <form action="" id="form_login">
+        <p>E-mail:</p>
+        <input type="email" name="Email" id="email" placeholder="Fm12@gmail.com" class="light-blue-input" />
+        <p>Senha:</p>
+        <input type="password" name="Pass" id="senha" placeholder="******" class="light-blue-input"/>
+        <div class="content_err">
+          <p id="erro"></p>
+          <a id="recuperar_senha"></a>
+        </div>
+        <button id="btn" class="btn-light-blue" value="logar">Logar</button>
+      </form>
+    </div>
+  </main>
+
+  <!-- popup para erros -->
+  <div id="popup" class="popup">
+    <div class="popup-conteudo">
+      <img id="img" src="assets/x.png" alt="" />
+      <p id="txtDoPopUp"></p>
+      <button id="btnFecharPopup" class="btn-light-blue">Fechar</button>
+    </div>
+  </div>
+
+
+
+  
+  <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-auth-compat.js"></script>
+  <script src="./js/auth.js"></script>
+  <script src="./js/inicializandofb.js"></script>
+  <script src="./js/loading.js"></script>
+  <script src="./js/login-cadastro.js"></script>
+  
+</body>
+
+</html>
