@@ -72,7 +72,10 @@ main {
   margin: 0 auto;
 
 }
-
+/* FORMATAÇÃO FICA DA TELA PRINCIPAL */
+#main main{
+  width: 1220px;
+}
 header a {
   display: flex;
   gap: 1rem;
@@ -239,7 +242,7 @@ div.input-login-camp5{
   background-color: #fff;
   text-align: center;
   padding: 3rem;
-  width: 43rem;
+  width: 500px;
   border-radius: 5px;
   z-index: 10;
 }
@@ -250,10 +253,7 @@ div.input-login-camp5{
   border: none;
   background-color: var(--light-blue-input);
   color: var(--labels-name);
-}
-
-.popup_cadastro select {
-  width: 17.8rem
+  width: 100%
 }
 
 .popup_cadastro P, label {
@@ -265,15 +265,15 @@ div.input-login-camp5{
   margin-bottom: 3rem;
 }
 .form_DE {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: center;
+  text-align: left;
   gap: 1rem;
 }
-
-.inf1, .inf2, .inf3, .inf4 {
-  text-align: left;
+.form_DE input select {
+  width: 100%;
 }
-
 .inf5 {
   width: 100%;
   margin-top: 2rem;
