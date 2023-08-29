@@ -440,6 +440,30 @@ div.card-pessoa span{
 #transaction{
 }
 
+.tansacoes_header{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+#cadastroValor {
+  font-size: 1.4rem;
+  background-color: var(--light-blue);
+  border-radius: 5px;
+  padding: 1rem;
+  color: var(--white);
+
+  transition: 0.3s;
+}
+
+.sr-only{
+  font-size: 1.6rem;
+}
+
+#cadastroValor:hover {
+  background-color: var(--grey-blue-light);
+}
+
 #transaction .header{
   padding: 1rem;
   display: flex;

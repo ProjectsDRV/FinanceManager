@@ -37,7 +37,7 @@
         <section id="valor-pessoa">
           <div id="title-pessoa">
             <h4>Valor Por pessoa</h4>
-            <button class="btn-light-blue" id="cadastroValor">Cadastrar</button>
+            <button class="btn-light-blue" id="">Cadastrar</button>
           </div>
 
           <div class="card-pessoa">
@@ -113,11 +113,14 @@
         </section>
       </div>
       <section id="transaction">
-        <h2 class="sr-only">Transações</h2>
 
-        <a href="#" class="button new" onclick="Modal.open()"
-          >+ Nova Transação</a
-        >
+        <div class="tansacoes_header">
+          <h2 class="sr-only">Transações</h2>
+
+          <a href="#" class="button new" id="cadastroValor"
+            >+ Nova Transação</a
+          >
+        </div>
 
         <table id="data-table">
           <thead>
@@ -169,15 +172,6 @@
     </div>
   </div>
 
-
-    <!-- popup para erros -->
-    <div id="popup" class="popup">
-      <div class="popup-conteudo">
-        <img id="img" src="assets/x.png" alt="" />
-        <p id="txtDoPopUp"></p>
-        <button id="btnFecharPopup" class="btn-light-blue">Fechar</button>
-      </div>
-    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-app-compat.js"></script>
