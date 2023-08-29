@@ -125,7 +125,7 @@ function fecharPoup() {
 function manterUsuarioLogado() {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-      window.location.href = "/FinanceManager/main.html";
+      window.location.href = "/main.html";
     }
   });
 }

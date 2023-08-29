@@ -13,7 +13,7 @@ function deslogar() {
       .auth()
       .signOut()
       .then(() => {
-        window.location.href = "/FinanceManager/login.html";
+        window.location.href = "/login.html";
       })
       .catch(() => {
         const popup = document.getElementById("popup");
@@ -29,7 +29,7 @@ function bloquearAcesso() {
   firebase.auth().onAuthStateChanged((user) => {
     console.log(user);
     if (!user) {
-      window.location.href = "/FinanceManager/login.html";
+      window.location.href = "/login.html";
     }
   });
 }

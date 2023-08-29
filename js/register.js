@@ -8,7 +8,7 @@ function register(email, senha) {
       //Fecha tela de carregamento
       hideLoading();
       //Direciona para Pagina principal
-      window.location.href = "/FinanceManager/main.html";
+      window.location.href = "/main.html";
 
       //Aqui vai ser chamada a função
     })

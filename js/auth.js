@@ -8,7 +8,7 @@ function auth(email, senha) {
       //Fecha tela de carregamento
       hideLoading();
       //Direciona para Pagina principal
-      window.location.href = "/FinanceManager/main.html";
+      window.location.href = "/main.html";
     })
     .catch((error) => {
       //Fecha tela de carregamento
