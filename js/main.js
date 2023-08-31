@@ -1,10 +1,9 @@
-let logout = document.querySelector("#logout")
-let bntDeCadastroDeValor = document.querySelector("#cadastroValor")
-let popupDeCadastroDeValor = document.querySelector("#popupDeCadastroValor")
-let cadastrarValor = document.querySelector("#cadastraValor")
-let popupCadastro = document.querySelector('.popup_cadastro')
-
-let corpoDaTabela = document.querySelector("#corpoDaTabela")
+let logout = document.querySelector("#logout");
+let bntDeCadastroDeValor = document.querySelector("#cadastroValor");
+let popupDeCadastroDeValor = document.querySelector("#popupDeCadastroValor");
+let cadastrarValor = document.querySelector("#cadastraValor");
+let popupCadastro = document.querySelector(".popup_cadastro");
+let corpoDaTabela = document.querySelector("#corpoDaTabela");
 let informacoesDoForm = [];
 
 // Desloga o usuario
