@@ -1,9 +1,10 @@
 let logout = document.querySelector("#logout");
-let bntDeCadastroDeValor = document.querySelector("#cadastroValor")
-let popupDeCadastroDeValor = document.querySelector("#popupDeCadastroValor")
-let cadastrarValor = document.querySelector("#cadastraValor")
-let popupCadastro = document.querySelector('.popup_cadastro');
-
+let bntDeCadastroDeValor = document.querySelector("#cadastroValor");
+let popupDeCadastroDeValor = document.querySelector("#popupDeCadastroValor");
+let cadastrarValor = document.querySelector("#cadastraValor");
+let popupCadastro = document.querySelector(".popup_cadastro");
+let corpoDaTabela = document.querySelector("#corpoDaTabela");
+let informacoesDoForm = [];
 
 // Desloga o usuario
 function deslogar() {
@@ -27,7 +28,6 @@ function deslogar() {
 function bloquearAcesso() {
   //Vai ficar buscando de tempos em tempos o status da validação do usuario
   firebase.auth().onAuthStateChanged((user) => {
-    console.log(user);
     if (!user) {
       window.location.href = "/login.html";
     }
@@ -103,45 +103,152 @@ function grafico() {
 }
 
 // Vai cadastra a entrada ou a saida do valor por pessoa
-function cadastroDeEntradaOuSaida(){
+function cadastroDeEntradaOuSaida() {
   //Abre o Popup para cadastro de valor
   bntDeCadastroDeValor.addEventListener("click", () => {
-    popupDeCadastroDeValor.style.display = "flex"
+    popupDeCadastroDeValor.style.display = "flex";
 
     // Verifica se o popup esta aberto
-    if(popupDeCadastroDeValor.style.display == "flex"){
+    if (popupDeCadastroDeValor.style.display == "flex") {
       //Pega o evento de click dentro do modal, se for dentro ele pausa a propação
       popupCadastro.addEventListener("click", (e) => {
-        e.stopPropagation()
-      })
+        e.stopPropagation();
+      });
 
       // Caso o click seja fora fecha o popup
-      popupDeCadastroDeValor.addEventListener("click", () =>{ 
-        popupDeCadastroDeValor. style.display = "none"
-      })
+      popupDeCadastroDeValor.addEventListener("click", () => {
+        popupDeCadastroDeValor.style.display = "none";
+      });
     }
-
-  })
-
+  });
 
   // Cadastra e fecha a Popup para cadastro de valor
   cadastrarValor.addEventListener("click", () => {
-    popupDeCadastroDeValor.style.display = "none"
-  })
+    popupDeCadastroDeValor.style.display = "none";
+  });
 }
 
-cadastroDeEntradaOuSaida()
+cadastroDeEntradaOuSaida();
+
+function createLinhaTabela() {}
+
+function cadastraTransacao() {
+  let botaoGerarCadastro = document.querySelector("#cadastraValor");
+  let count = 0;
+
+  botaoGerarCadastro.addEventListener("click", () => {
+    // Pega os campos que o popup possui
+    let titulo = document.querySelector("#titleCadatro");
+    let campoSelecionavel = document.querySelector("#selectCadastro");
+    let valor = document.querySelector("#valueCadastro");
+    let categoria = document.querySelector("#categoryCadastro");
+
+    //Sequencia de validações para saber se exite algum campo vazio dentro do Popup
+    if (titulo.value == "") {
+      titulo.style.border = "2px solid red";
+      popupDeCadastroDeValor.style.display = "flex";
+    } else {
+      titulo.style.border = "transparent";
+    }
+
+    if (campoSelecionavel.value == "") {
+      campoSelecionavel.style.border = "2px solid red";
+      popupDeCadastroDeValor.style.display = "flex";
+    } else {
+      titulo.style.border = "transparent";
+    }
+
+    if (valor.value == "") {
+      valor.style.border = "2px solid red";
+      popupDeCadastroDeValor.style.display = "flex";
+    } else {
+      titulo.style.border = "transparent";
+    }
+
+    if (categoria.value == "") {
+      categoria.style.border = "2px solid red";
+      popupDeCadastroDeValor.style.display = "flex";
+    } else {
+      titulo.style.border = "transparent";
+    }
+    //  -------------------------------------------------------------------------------
+
+    // Pega a data atual e formata 
+    function pegarDataDoCadastro() {
+      let date = new Date();
+      let dia = date.getDate();
+      let mes = date.getMonth() + 1;
+      let ano = date.getFullYear();
+
+      if (dia < 10) {
+        dia = `0${dia}`;
+      }
+
+      if (mes < 10) {
+        mes = `0${mes}`;
+      }
+
+      return `${dia}/${mes}/${ano}`;
+    }
 
 
+    // Cria objeto com as informações passadas pelo usuario
+    let row = {
+      descricao: titulo.value,
+      valor: valor.value,
+      categoria: valor.value,
+      date: pegarDataDoCadastro(),
+    };
+
+    // Salva o objeto dentro do array
+    informacoesDoForm.push(row);
+
+    // Cria linha na tabela com as informações aicionadas no popup
+    function criarLinhaNaTabela() {
+      let tr = document.createElement("tr");
+      tr.className = "contentValue";
+
+      corpoDaTabela.appendChild(tr);
+
+      let thDesc = document.createElement("th");
+      thDesc.id = "descricao";
+      thDesc.textContent = informacoesDoForm[count].descricao;
+
+      let thCategory = document.createElement("th");
+      thCategory.id = "categoria";
+      thCategory.textContent = informacoesDoForm[count].categoria;
+
+      let thValor = document.createElement("th");
+      thValor.id = "valor";
+      thValor.textContent = informacoesDoForm[count].valor;
+
+      let thData = document.createElement("th");
+      thData.id = "data";
+      thData.textContent = informacoesDoForm[count].date;
+
+      tr.appendChild(thDesc);
+      tr.appendChild(thCategory);
+      tr.appendChild(thValor);
+      tr.appendChild(thData);
+
+      count = count + 1;
+    }
+    criarLinhaNaTabela();
 
 
+    // Limpa dados do campo de popup para cadastro de entrada / saida
+    function limparCampos(){
+      titulo.value = ""
+      campoSelecionavel.value = ""
+      valor.value = ""
+      categoria.value = ""
+    }
 
+    limparCampos()
+  });
+}
 
-
-
-
-
-
+cadastraTransacao();
 
 grafico();
 
