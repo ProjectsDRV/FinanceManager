@@ -1,0 +1,636 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+:root {
+  --dark-Blue: #031ca6;
+  --wigth-blue: #0339a6;
+  --grey-blue: #0468bf;
+  --grey-blue-light: #049dd9;
+  --white-blue: #e6f5ff;
+  --light-blue-input: #04b2d94b;
+  --light-blue: #04b2d9;
+  --ligt-blue-opacity: rgba(4, 178, 217, 0.49);
+  --white: #ffffff;
+  --grey-subtitle: #a1acb3;
+  --titleandtext: #333333;
+  --labels-name: #6c6c80;
+  --popins:  "Poppins", sans-serif, "Poppins", sans-serif;
+  font-size: 10px;
+}
+
+
+body {
+  background: url(../assets/background_lading.png) no-repeat right bottom;
+  font-family: "Poppins", sans-serif, "Poppins", sans-serif;
+  height: 100vh;
+}
+
+body#main{
+  background: none;
+}
+
+input, select, button:focus {
+  outline: none;
+}
+
+.loading{
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading img {
+  width: 14rem;
+}
+
+a {
+  text-decoration: none;
+  font-family: var(--popins);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 120px;
+  margin-bottom: 2rem;
+}
+
+main {
+    max-width: 1440px;
+  min-height: 720px;
+
+  width: 90vw;
+  height: 100vh;
+  margin: 0 auto;
+
+}
+/* FORMATAÇÃO FICA DA TELA PRINCIPAL */
+#main main{
+  width: 1220px;
+}
+
+header a {
+  display: flex;
+  gap: 1rem;
+
+  font-size: 1.6rem;
+  color: var(--grey-blue);
+  text-align: right;
+  text-decoration: none;
+
+}
+header #logo{
+  cursor: pointer;
+}
+div.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  width: 50%;
+  height: 80%;
+
+}
+div.content-index{
+  justify-content: center;
+  gap: 3rem;
+}
+
+h1 {
+  font-size: 3rem;
+  font-family: "Poppins", sans-serif;
+
+}
+
+h3{
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--labels-name);
+}
+
+.content-index a{
+  text-align: center;
+  font-size: 1.2rem;
+}
+.content input.light-blue-input, select.light-blue-input {
+  margin-bottom: 2.5rem;
+  padding: 1rem;
+  font-size: 1.6rem;
+  background-color: var(--light-blue-input);
+  border: 2px solid transparent;
+  border-radius: 5px;
+  color: var(--labels-name);
+  width: 100%;
+
+}
+
+form#form_login, form#form_cadastro label{
+  font-size: 1.5rem;
+}
+
+
+div.input-login-camp3{
+  display: grid;
+  grid-template-areas: "camp4 camp5";
+  grid-gap: 1rem;
+}
+
+div.input-login-camp4{
+
+  grid-area: camp4;
+}
+
+div.input-login-camp5{
+  grid-area: camp5;
+
+}
+
+.content_err{
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  margin-top: -2.2rem;
+  margin-bottom: 2rem;
+}
+
+#erro {
+  color: red;
+}
+
+#recuperar_senha{
+  font-weight: 500;
+  color: var(--dark-Blue);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#recuperar_senha:hover{
+  color: var(--grey-blue-light);
+}
+
+.btn-light-blue {
+  display: block;
+  cursor: pointer;
+  border: none;
+  font-weight: 600;
+  color: var(--white);
+  background-color: var(--light-blue);
+  width: 18rem;
+  padding: 1rem;
+  border-radius: 5px;
+
+  transition: 0.3s;
+}
+
+.btn-light-blue:hover {
+  background-color: var(--grey-blue-light);
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
+}
+
+.popup-conteudo {
+  background-color: #fff;
+  text-align: center;
+  padding: 2rem;
+  width: 30rem;
+  border-radius: 5px;
+}
+
+.popup-conteudo img {
+  width: 5.5rem;
+}
+
+#btnFecharPopup {
+  margin: auto;
+  margin-top: 2rem;
+}
+
+/* --- POPUP2 PARA ADIÇÃO DE DESPESA/ENTRADA --- */
+.popup2 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
+}
+
+.popup_cadastro{
+  position: absolute;
+  background-color: #fff;
+  text-align: center;
+  padding: 3rem;
+  width: 500px;
+  width: 43.4rem;
+  border-radius: 5px;
+  z-index: 10;
+}
+
+.popup_cadastro input, select {
+  padding: 0.8rem 0.8rem;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--light-blue-input);
+  color: var(--labels-name);
+  width: 100%
+}
+
+.popup_cadastro select {
+  width: 17.8rem
+}
+
+.popup_cadastro P, label {
+  font-size: 1.4rem;
+  color: var(--labels-name);
+}
+
+.popup_cadastro h2 {
+  margin-bottom: 3rem;
+}
+.form_DE {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: center;
+  text-align: left;
+  gap: 1rem;
+}
+.form_DE input select {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.inf1, .inf2, .inf3, .inf4 {
+  text-align: left;
+}
+
+
+.inf5 {
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.inf5 button{
+  width: 100%;
+}
+
+/* FORMAÇÃO TELA DE DADOS */
+
+#logout {
+  cursor: pointer;
+}
+
+.btn-light-blue {
+  display: block;
+  cursor: pointer;
+  border: none;
+  font-weight: 600;
+  color: var(--white);
+  background-color: var(--light-blue);
+  width: 18rem;
+  padding: 1rem;
+  border-radius: 5px;
+
+  transition: 0.3s;
+}
+
+.btn-light-blue:hover {
+  background-color: var(--grey-blue-light);
+}
+
+#btns-funcions{
+  width: 80%;
+  margin: auto;
+  margin-top: 4rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
+}
+
+.popup-conteudo {
+  background-color: #fff;
+  text-align: center;
+  padding: 2rem;
+  width: 30rem;
+  border-radius: 5px;
+}
+
+.popup-conteudo img {
+  width: 5.5rem;
+}
+
+#btnFecharPopup {
+  margin: auto;
+  margin-top: 2rem;
+}
+
+/* FORMAÇÃO TELA DE DADOS */
+#database-page{
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1.3fr;
+  grid-template-rows: auto 1fr;
+  gap: 2rem;
+  height: 400px;
+
+}
+#money-flow{
+  height: 400px;
+}
+
+#balance{
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  height: 400px;
+  color: white;
+}
+
+#balance .card{
+  background-color: #0468BF;
+  padding: 1rem;
+  border-radius: 10px;
+  position: relative;
+}
+
+#balance .card h3{
+  color: white;
+  font-weight: 300;
+  margin-left: 2rem;
+}
+
+#balance .card p{
+  font-size: 5rem;
+  margin-left: 2rem;
+}
+
+#balance .card img{
+  position: absolute;
+  right: 12px;
+  top: 17px;
+}
+
+#valor-pessoa{
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  height: 54vh;
+
+}
+
+div#title-pessoa{
+  display: flex;
+  justify-content: space-between ;
+  align-items: baseline;
+
+}
+
+h4 {
+  font-size: 1.4rem;
+}
+
+div#title-pessoa button{
+  width: 100px;
+}
+div.card-pessoa{
+  display: inline-grid;
+  background-color: var(--ligt-blue-opacity);
+  border-radius: 10px;
+  height: 70px;
+  grid-template-columns: auto 1fr;
+  padding: 1rem;
+  align-items: center;
+          
+}
+div.card-pessoa h4{
+  font-size: 1.6rem;
+
+}
+div.card-pessoa p{
+  font-size: 1.2rem;
+  color: #A1ACB3;
+}
+
+div.card-pessoa span{
+  grid-row: span  2;
+  text-align: right;
+  font-size: 1.5rem;
+} 
+
+
+.tansacoes_header{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+#cadastroValor {
+  font-size: 1.4rem;
+  background-color: var(--light-blue);
+  border-radius: 5px;
+  padding: 1rem;
+  color: var(--white);
+
+  transition: 0.3s;
+}
+
+.sr-only{
+  font-size: 1.6rem;
+}
+
+#cadastroValor:hover {
+  background-color: var(--grey-blue-light);
+}
+
+#transaction .header{
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+#data-table .contentValue {
+  background-color: var(--ligt-blue-opacity);
+}
+
+
+#transaction .header .button{
+  background: var(--grey-blue);
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+  border: none;
+  font-weight: 600;
+  color: var(--white);
+  width: 20rem;
+  padding: 1.5rem;
+  border-radius: 5px;
+
+  transition: 0.3s;
+}
+
+  
+  table {
+  border-collapse:collapse;
+  margin: auto;
+  width: 100%;
+  }
+
+  tr{
+    border: 1rem solid white;
+    border-radius: 5px;
+  }
+  
+  th, td{
+  padding: 10px;
+  text-align: center;
+  width: 25%;
+  height: 64px;
+  font-size: 1.5rem;
+  }
+  
+  th{
+  font-weight: bold;
+  
+  }
+  
+  td{
+    background-color: var(--light-blue-input);
+    border:none
+    
+  }
+ /*pop app*/
+  .container{
+     padding: 40px;
+     border: 1px black solid;
+     width: 100%;
+     max-width: 550px;
+     height: 800px;
+     display: flex;
+     flex-wrap: wrap;
+     flex-direction: column;
+     }
+    
+    .container form{
+     display: flex;
+     width: 100%;
+     flex-wrap: wrap;
+     justify-content: space-between;
+     font-size: 1.6rem;
+    }
+    
+    .input{
+     width: 100%;
+     height: 56px;
+     background-color: var(--light-blue-input);
+     border: none;
+     border-radius: 8px;
+     padding-left: 13px;
+     font-size: 1.6rem;
+     color: var(--labels-name);
+    }
+    .w50{
+     width: 48%;
+    }
+
+    .container form p{
+      margin-top: 1.6rem;
+      padding: 0.7rem;
+      color: var(--labels-name);
+    }
+    
+    .division{
+     padding: 20px 0;
+     justify-content: space-between;
+     display: flex;
+    flex-wrap: wrap;
+     width: 100%;
+    }
+    
+    .division h1{
+     width: 100%;
+     padding: 1rem;
+    }
+    
+    .division .division-wrap{
+     background-color: var(--light-blue-input);
+     height: 184px;
+     width: 40%;
+     min-width: 192px;
+     border-radius: 8px;
+    }
+    
+    .division button{
+     height: 45px;
+     width: 140px;
+     margin-top: 40px;
+     border-radius: 8px;
+     background: var(--grey-blue-light);
+     border: none;
+     color: white;
+     font-weight: bold;
+     font-size: 1.7rem;
+    }
+  
+/* MEDIA QUERY DE ALTURA NAS PAGINAS INICIAIS */
+@media(max-height:720px) {
+  #index, #login {
+    overflow-y: hidden;
+  }
+  
+  body#cadastro, body#login {
+    background: none;
+  }
+  
+  h1{
+    font-size: 4rem;
+  }
+  
+  h3{
+    font-size: 1.6rem;
+  }
+
+  body#cadastro .content,
+  body#login .content{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0px auto;
+
+  } 
+
+}
